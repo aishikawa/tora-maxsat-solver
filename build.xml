@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="EUC-JP"?>
+  <project name="maxsat_solver" default="pack" basedir="./">
+
+  <property name="compile" value="Classes"/>
+  <property name="classpath" value="lib/commons-cli-1.2.jar" />
+  <property name="dest" value="dest" />
+
+  <target name="directory">
+    <mkdir dir="${compile}"/>
+  	<mkdir dir="${dest}" />
+  	<mkdir dir="${dest}/lib" />
+  </target>
+  	
+  <target name="copy" depends="directory" >
+  	<copy todir="${dest}/lib" >  
+  	    <fileset dir="lib" includes="**"/> 
+  	</copy>
+  	<copy file="LICENSE" toDir="${dest}" overwrite="yes" />
+  	<copy file="NOTICE" toDir="${dest}" overwrite="yes" />
+  	<copy file="README" toDir="${dest}" overwrite="yes" />
+  	<copy file="READMEjp" toDir="${dest}" overwrite="yes" />
+  	<copy file="maxsat_solver.properties" toDir="${dest}" overwrite="yes" />
+  </target>
+
+  <target name="compile" depends="directory">
+    <javac
+     srcdir="src"
+     destdir="${compile}"
+     classpath="${classpath}"
+     excludes="build.xml"
+   	 includeantruntime="false"
+    />
+  </target>
+  	
+  <target name="jar" depends="compile">
+  	<jar basedir="${compile}" destfile="${dest}/maxsat.jar">
+  		<manifest>
+  			<attribute name="Main-Class" value="main.Main" />
+  			<attribute name="Class-Path" value="${classpath}" />
+  		</manifest>
+  	</jar>
+  </target>
+
+  <target name="pack" depends="copy, jar" />
+  	
+  	
+</project>
