@@ -47,8 +47,6 @@ public class GeneticLocalSearch extends AlgorithmUsingOneFlipLocalSearch {
 			boolean[] child = crossover(parent1.assignment, parent2.assignment);
 			Solution sol = localSearch.getLocalOptimumSolution(child);
 		
-			//System.out.println(sol);
-			
 			if (incumbent.unsatisfiedValue > sol.unsatisfiedValue) {
 				incumbent = sol;
 				System.out.println("o "+incumbent.unsatisfiedValue);

@@ -48,7 +48,6 @@ public class OneFlipLocalSearch {
 		long currentUnsatisfiedValue = instance.getUnsatisfiedValue(current);
 		
 		while (true) {
-			//System.out.println(Arrays.toString(current));
 			long bestDiff = 0;
 			int bestFlipVariable = -1;
 			for (int n=0; n<instance.getNumValiables(); n++) {
@@ -66,7 +65,6 @@ public class OneFlipLocalSearch {
 			if (bestDiff < 0) {
 				current[bestFlipVariable] = !current[bestFlipVariable];
 				currentUnsatisfiedValue += bestDiff;
-				//System.out.println("o "+currentUnsatisfiedValue);
 			} else {
 				break;
 			}
