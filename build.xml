@@ -17,8 +17,7 @@
   	</copy>
   	<copy file="LICENSE" toDir="${dest}" overwrite="yes" />
   	<copy file="NOTICE" toDir="${dest}" overwrite="yes" />
-  	<copy file="README" toDir="${dest}" overwrite="yes" />
-  	<copy file="READMEjp" toDir="${dest}" overwrite="yes" />
+  	<copy file="README.md" toDir="${dest}" overwrite="yes" />
   	<copy file="maxsat_solver.properties" toDir="${dest}" overwrite="yes" />
   </target>
 
